@@ -1,0 +1,17 @@
+<h1>Games Home</h1>
+<h2>Search for a Game</h2>
+<form action='/games' method='GET'>
+    <input type="text" name="searchName" placeholder="search name" />
+    <input type="text" name="searchGenre" placeholder="search genre" />
+    <input type="text" name="searchPlatform" placeholder="search platform" />
+    <input type="submit" value="search" />
+</form>
+
+<br/>
+<% games.forEach((game) => { %>
+    <div>
+        <h2><%= game.name %></h2>
+        
+        <a href="/games/<%= game._id %>">More info</a>
+    </div>
+<% }) %>

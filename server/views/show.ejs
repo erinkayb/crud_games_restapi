@@ -1,0 +1,15 @@
+<a href="/games">Home</a>
+
+<div>
+  <div>
+    <h1><%= game.name %></h1>
+    <p><%= game.genre %></p>
+    <p><%= game.publisher %></p>
+    <p><%= game.release_date %></p>
+    <p><%= game.platforms %></p>
+  </div>
+  <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+  </form>
+  <a href="/games/<%= game._id %>/edit">Edit</a>
+</div>

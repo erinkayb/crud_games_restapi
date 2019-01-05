@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <h1>Edit <%= game.name %></h1>
+    </div>
+
+    <form action="/games/<%= game._id %>?_method=PUT" method="POST">
+        <input type="text" name="games[name]" value="<%= game.name %>" />
+        <input type="text" name="games[genre]" value="<%= game.genre %>" />
+        <input type="text" name="games[publisher]" value="<%= game.publisher %>" />
+        <input type="date" name="games[release_date]" value="<%= game.release_date %>" />
+        <input type="text" name="games[platforms]" value="<%= game.platforms %>" />
+        <input type="submit" />
+    </form>
+</div>
