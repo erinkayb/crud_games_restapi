@@ -5,7 +5,6 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const port = process.env.PORT || 3000
 
-
 mongoose.connect("mongodb://localhost/gamesdb")
 app.set("view engine", "ejs")
 app.use(express.static("public"))
@@ -27,47 +26,6 @@ app.get("/", (req, res) => {
 })
 // Get all games and search games
 app.get("/games", (req, res) => {
-  // if (
-  //   req.query.searchName &&
-  //   req.query.searchGenre &&
-  //   req.query.searchPlatform
-  // ) {
-  //   const regex1 = new RegExp(escapeRegex(req.query.searchName), "gi")
-  //   const regex2 = new RegExp(escapeRegex(req.query.searchGenre), "gi")
-  //   const regex3 = new RegExp(escapeRegex(req.query.searchPlatform), "gi")
-  //   Games.find(
-  //     { name: regex1, genre: regex2, platforms: regex3 },
-  //     (err, games) => {
-  //       if (err) {
-  //         console.log(err)
-  //       } else {
-  //         res.render("index", { games: games })
-  //       }
-  //     }
-  //   )
-  // }
-  // if (req.query.searchName && req.query.searchGenre) {
-  //   const regex1 = new RegExp(escapeRegex(req.query.searchName), "gi")
-  //   const regex2 = new RegExp(escapeRegex(req.query.searchGenre), "gi")
-  //   Games.find({ name: regex1, genre: regex2 }, (err, games) => {
-  //     if (err) {
-  //       console.log(err)
-  //     } else {
-  //       res.render("index", { games: games })
-  //     }
-  //   })
-  // }
-  // if (req.query.searchPlatform && req.query.searchGenre) {
-  //   const regex1 = new RegExp(escapeRegex(req.query.searchPlatform), "gi")
-  //   const regex2 = new RegExp(escapeRegex(req.query.searchGenre), "gi")
-  //   Games.find({ platforms: regex1, genre: regex2 }, (err, games) => {
-  //     if (err) {
-  //       console.log(err)
-  //     } else {
-  //       res.render("index", { games: games })
-  //     }
-  //   })
-  // }
   if (req.query.searchName) {
     const regex = new RegExp(escapeRegex(req.query.searchName), "gi")
     Games.find({ name: regex }, (err, games) => {
