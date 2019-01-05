@@ -1,17 +1,54 @@
-<h1>Games Home</h1>
-<h2>Search for a Game</h2>
-<form action='/games' method='GET'>
-    <input type="text" name="searchName" placeholder="search name" />
-    <input type="text" name="searchGenre" placeholder="search genre" />
-    <input type="text" name="searchPlatform" placeholder="search platform" />
-    <input type="submit" value="search" />
-</form>
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  />
+</head>
 
-<br/>
-<% games.forEach((game) => { %>
+<body>
+  <div
+    class="container card shadow-lg p-3 mb-5 bg-white rounded"
+    style="margin-top: 50px;"
+  >
     <div>
-        <h2><%= game.name %></h2>
-        
-        <a href="/games/<%= game._id %>">More info</a>
+      <h1>Games Home</h1>
+      <a
+        class="btn btn-secondary"
+        style="margin-bottom: 20px;"
+        href="/games/new"
+        >Add a game</a
+      >
     </div>
-<% }) %>
+    <div
+      class="card mx-auto"
+      style="width: 55rem; padding: 20px; margin-top: 10px; margin-bottom: 10px;"
+    >
+      <h2 class="mx-auto">Search for a Game</h2>
+      <form class="mx-auto" action="/games" method="GET">
+        <input type="text" name="searchName" placeholder="search name" />
+        <input type="text" name="searchGenre" placeholder="search genre" />
+        <input
+          type="text"
+          name="searchPlatform"
+          placeholder="search platform"
+        />
+        <input type="submit" value="search" class="btn btn-primary" />
+      </form>
+    </div>
+    <br />
+
+    <div class="card mx-auto" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <% games.forEach((game) => { %>
+        <li class="list-group-item">
+          <h2><%= game.name %></h2>
+
+          <a href="/games/<%= game._id %>">More info</a>
+
+          <% }) %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>

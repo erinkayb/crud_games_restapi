@@ -1,37 +1,62 @@
 <head>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 </head>
 <body>
-<div>
-  <div><h1>New Game</h1></div>
+
+
+<div class="container card shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 50px;">
+  <div><h1>New Game</h1>
+    <a class="btn btn-secondary" style="margin-bottom: 20px;" href="/games">Back to Game List</a>
+
+  </div>
 
   <form action="/games" method="POST">
     <div class="form-group">
-    <input type="text" name="games[name]" placeholder="Name" />
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="RPGs"/><label for="RPGs">RPGs</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="MMORPG"><label for="MMORPG">MMORPG</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="FPS"><label for="FPS">FPS</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="3rd Person FPS"><label for="3rd Person FPS">3rd Person FPS</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="RTS"><label for="RTS">RTS</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="Battle Arena"><label for="Battle Arena">Battle Arena</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="Turn Base Strategies"><label for="Turn Base Strategies">Turn Base Strategies</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="Action"><label for="Action">Action</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="Action/Adventure"><label for="Action/Adventure">Action/Adventure</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="Survival"><label for="Survival">Survival</label>
-        <input class="form-check-input" type="checkbox" name="games[genre]" value="Simulator"><label for="Simulator">Simulator</label>
-    </div>
-    <input type="text" name="games[publisher]" placeholder="Publisher" />
-    <input type="date" name="games[release_date]" placeholder="Release Date" />
-    <div>
-        <input type="checkbox" name="games[platforms]" value="PC/MAC"><label for="PC/MAC">PC/MAC</label>
-        <input type="checkbox" name="games[platforms]" value="XBOX"><label for="XBOX">XBOX</label>
-        <input type="checkbox" name="games[platforms]" value="Playstation"><label for="Playstation">Playstation</label>
-        <input type="checkbox" name="games[platforms]" value="iOS"><label for="iOS">iOS</label>
-        <input type="checkbox" name="games[platforms]" value="Android"><label for="Android">Android</label>
-        <input type="checkbox" name="games[platforms]" value="Switch"><label for="Switch">Switch</label>
+      <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <input type="text" class="col-sm-10 form-control-plaintext" name="games[name]" id="name" placeholder="name" />
+      </div>
+
+    <div class="card" style="width: 55rem; padding: 20px; margin-top: 10px; margin-bottom: 10px;">
+    <p>Genres</p>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="RPGs"/><label class="form-check-label" for="RPGs">RPGs</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="MMORPG"><label class="form-check-label" for="MMORPG">MMORPG</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="FPS"><label class="form-check-label" for="FPS">FPS</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="3rd Person FPS"><label class="form-check-label" for="3rd Person FPS">3rd Person FPS</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="RTS"><label class="form-check-label" for="RTS">RTS</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="Battle Arena"><label class="form-check-label" for="Battle Arena">Battle Arena</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="Turn Base Strategies"><label class="form-check-label" for="Turn Base Strategies">Turn Base Strategies</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="Action"><label class="form-check-label" for="Action">Action</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="Action/Adventure"><label class="form-check-label" for="Action/Adventure">Action/Adventure</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="Survival"><label class="form-check-label" for="Survival">Survival</label>
+        <input class="form-check-input" type="checkbox" name="games[genre]" value="Simulator"><label class="form-check-label" for="Simulator">Simulator</label>
     </div>
     </div>
-    <input type="submit" />
+      <div class="form-group row">
+        <label for="publisher" class="col-sm-2 col-form-label">Publisher</label>
+        <input type="text" class="col-sm-10 form-control-plaintext" name="games[publisher]" id="publisher" placeholder="Publisher"/>
+      </div>
+
+    <div class="form-group row">
+      <label for="release_date" class="col-sm-2 col-form-label">Release Date</label>
+        <input type="date" class="col-sm-10 form-control-plaintext" name="games[release_date]" id="release_date" />
+
+    </div>
+    <div class="card" style="width: 55rem; padding: 20px; margin-top: 10px; margin-bottom: 10px;">
+      <p>Platforms</p>
+        <div class="form-check form-check-inline">
+            <input type="checkbox" name="games[platforms]" value="PC/MAC"><label for="PC/MAC">PC/MAC</label>
+            <input type="checkbox" name="games[platforms]" value="XBOX"><label for="XBOX">XBOX</label>
+            <input type="checkbox" name="games[platforms]" value="Playstation"><label for="Playstation">Playstation</label>
+            <input type="checkbox" name="games[platforms]" value="iOS"><label for="iOS">iOS</label>
+            <input type="checkbox" name="games[platforms]" value="Android"><label for="Android">Android</label>
+            <input type="checkbox" name="games[platforms]" value="Switch"><label for="Switch">Switch</label>
+        </div>
+    </div>
+    </div>
+    <input class="btn btn-primary" type="submit" />
   </form>
+
 </div>
 </body>
