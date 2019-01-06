@@ -38,7 +38,7 @@ app.get("/games", (req, res) => {
   }
   if (req.query.searchGenre) {
     const regex = new RegExp(escapeRegex(req.query.searchGenre), "gi")
-    Games.find({ genre: { $elemMatch: { $regex: regex} } }, (err, games) => {
+    Games.find({ genre: { $elemMatch: { $regex: regex } } }, (err, games) => {
       if (err) {
         console.log(err)
       } else {
@@ -48,13 +48,16 @@ app.get("/games", (req, res) => {
   }
   if (req.query.searchPlatform) {
     const regex = new RegExp(escapeRegex(req.query.searchPlatform), "gi")
-    Games.find({ platforms: { $all: [regex] } }, (err, games) => {
-      if (err) {
-        console.log(err)
-      } else {
-        res.render("index", { games: games })
+    Games.find(
+      { platforms: { $elemMatch: { $regex: regex } } },
+      (err, games) => {
+        if (err) {
+          console.log(err)
+        } else {
+          res.render("index", { games: games })
+        }
       }
-    })
+    )
   }
   if (
     (req.query.searchName &&
@@ -78,6 +81,8 @@ app.get("/games/new", (req, res) => {
 
 // Create Route
 app.post("/games", (req, res) => {
+  let newGame = req.body.games.name
+  console.log(newGame)
   Games.create(
     {
       name: req.body.games.name,
@@ -103,7 +108,6 @@ app.get("/games/:id", (req, res) => {
       console.log(err)
     } else {
       res.render("show", { game: foundGame })
-
     }
   })
 })
@@ -144,5 +148,4 @@ app.delete("/games/:id", (req, res) => {
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")
 }
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`listening on port ${port}!`))
