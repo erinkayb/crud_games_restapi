@@ -1,14 +1,175 @@
-<div>
-    <div>
-        <h1>Edit <%= game.name %></h1>
-    </div>
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  />
+</head>
+
+<body>
+  <div
+    class="container card shadow-lg p-3 mb-5 bg-white rounded"
+    style="margin-top: 50px;"
+  >
+    <div><h1>Edit <%= game.name %></h1></div>
 
     <form action="/games/<%= game._id %>?_method=PUT" method="POST">
-        <input type="text" name="games[name]" value="<%= game.name %>" />
-        <input type="text" name="games[genre]" value="<%= game.genre %>" />
-        <input type="text" name="games[publisher]" value="<%= game.publisher %>" />
-        <input type="date" name="games[release_date]" value="<%= game.release_date %>" />
-        <input type="text" name="games[platforms]" value="<%= game.platforms %>" />
-        <input type="submit" />
+      <div class="form-group">
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">Name</label>
+          <input
+            type="text"
+            class="col-sm-10 form-control-plaintext"
+            name="games[name]"
+            value="<%= game.name %>"
+            id="name"
+            placeholder="name"
+          />
+        </div>
+        <div
+          class="card"
+          style="width: 55rem; padding: 20px; margin-top: 10px; margin-bottom: 10px;"
+        >
+          <p>Genres</p>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="RPGs"
+            /><label class="form-check-label" for="RPGs">RPGs</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="MMORPG"
+            /><label class="form-check-label" for="MMORPG">MMORPG</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="FPS"
+            /><label class="form-check-label" for="FPS">FPS</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="3rd Person FPS"
+            /><label class="form-check-label" for="3rd Person FPS"
+              >3rd Person FPS</label
+            >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="RTS"
+            /><label class="form-check-label" for="RTS">RTS</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="Battle Arena"
+            /><label class="form-check-label" for="Battle Arena"
+              >Battle Arena</label
+            >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="Turn Base Strategies"
+            /><label class="form-check-label" for="Turn Base Strategies"
+              >Turn Base Strategies</label
+            >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="Action"
+            /><label class="form-check-label" for="Action">Action</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="Action/Adventure"
+            /><label class="form-check-label" for="Action/Adventure"
+              >Action/Adventure</label
+            >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="Survival"
+            /><label class="form-check-label" for="Survival">Survival</label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="games[genre]"
+              value="Simulator"
+            /><label class="form-check-label" for="Simulator">Simulator</label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="publisher" class="col-sm-2 col-form-label"
+            >Publisher</label
+          >
+          <input
+            type="text"
+            class="col-sm-10 form-control-plaintext"
+            value="<%= game.publisher %>"
+            name="games[publisher]"
+            id="publisher"
+            placeholder="Publisher"
+          />
+        </div>
+        <div class="form-group row">
+          <label for="release_date" class="col-sm-2 col-form-label"
+            >Release Date</label
+          >
+          <input
+            type="date"
+            class="col-sm-10 form-control-plaintext"
+            name="games[release_date]"
+            id="release_date"
+          />
+        </div>
+        <div
+          class="card"
+          style="width: 55rem; padding: 20px; margin-top: 10px; margin-bottom: 10px;"
+        >
+          <p>Platforms</p>
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              name="games[platforms]"
+              value="PC/MAC"
+            /><label for="PC/MAC">PC/MAC</label>
+            <input type="checkbox" name="games[platforms]" value="XBOX" /><label
+              for="XBOX"
+              >XBOX</label
+            >
+            <input
+              type="checkbox"
+              name="games[platforms]"
+              value="Playstation"
+            /><label for="Playstation">Playstation</label>
+            <input type="checkbox" name="games[platforms]" value="iOS" /><label
+              for="iOS"
+              >iOS</label
+            >
+            <input
+              type="checkbox"
+              name="games[platforms]"
+              value="Android"
+            /><label for="Android">Android</label>
+            <input
+              type="checkbox"
+              name="games[platforms]"
+              value="Switch"
+            /><label for="Switch">Switch</label>
+          </div>
+        </div>
+      </div>
+      <input type="submit" />
     </form>
-</div>
+  </div>
+</body>

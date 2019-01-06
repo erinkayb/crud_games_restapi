@@ -1,15 +1,36 @@
-<a href="/games">Home</a>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
 
-<div>
+<body>
+
+
+
+<div class="container card text-center shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 50px;">
   <div>
-    <h1><%= game.name %></h1>
-    <p><%= game.genre %></p>
-    <p><%= game.publisher %></p>
-    <p><%= game.release_date %></p>
-    <p><%= game.platforms %></p>
+    <h1 class="card-header"><%= game.name %></h1>
+    <div class='row'>
+      <p class="col col-lg-2">Genre</p>
+      <p class="col-md-auto"><%= game.genre %></p>
+    </div>
+    <div class='row'>
+      <p class="col col-lg-2">Publisher</p>
+      <p class="col-md-auto"><%= game.publisher %></p>
+    </div>
+    <div class='row'>
+      <p class="col col-lg-2">Release Date</p>
+      <p class="col-md-auto"><%= game.release_date.toDateString() %></p>
+    </div>
+    <div class='row'>
+      <p class="col col-lg-2">Platforms</p>
+      <p class="col-md-auto"><%= game.platforms %></p>
+    </div>
   </div>
   <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-    <button>Delete</button>
+    <button class="btn btn-danger">Delete</button>
   </form>
-  <a href="/games/<%= game._id %>/edit">Edit</a>
+  <a class="btn btn-warning mx-auto" style="width: 80px;" href="/games/<%= game._id %>/edit">Edit</a>
+  <a href="/games" class="btn btn-primary mx-auto" style="width: 170px; margin-top:15px;">Back to game list</a>
 </div>
+</div>
+</body>
